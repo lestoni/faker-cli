@@ -48,6 +48,7 @@ $ faker-cli -n findName
 
         $ faker-cli --helpers userCard
         $ faker-cli --random uuid
+        $ faker-cli --locale de --helpers userCard
 ```
 
 # License.

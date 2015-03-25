@@ -12,23 +12,23 @@ var _currentOption;
 var output;
 
 program
-.version(pkg.version)
-.description('A cli wrapper for fakerjs')
-.usage('[option]')
-.option('-a, --address [value]', 'street address')
-.option('-c, --company [value]', 'company info')
-.option('-d, --date    [value]', 'date options')
-.option('-f  --finance [value]', 'finance field')
-.option('-i  --internet [value]', 'internet goodies')
-.option('-l  --lorem   [value]', 'lorem ipsum goodnes')
-.option('-n  --names    [value]', 'person name(s)')
-.option('-p  --phone   [value]', 'phone number options')
-.option('-r  --random  [value]', 'randomness')
-.option('-L, --locale  [value]', 'set locale, defaults to en', 'en')
-.option('-x, --hacker  [value]', 'hackers stuff')
-.option('-H, --helpers [value]', 'detailed contextual data')
-.option('-I, --image   [value]', 'image data')
-.option('-w, --locales', 'list available locales');
+  .version(pkg.version)
+  .description('A cli wrapper for fakerjs')
+  .usage('[option]')
+  .option('-a, --address [value]', 'street address')
+  .option('-c, --company [value]', 'company info')
+  .option('-d, --date    [value]', 'date options')
+  .option('-f  --finance [value]', 'finance field')
+  .option('-i  --internet [value]', 'internet goodies')
+  .option('-l  --lorem   [value]', 'lorem ipsum goodnes')
+  .option('-n  --names    [value]', 'person name(s)')
+  .option('-p  --phone   [value]', 'phone number options')
+  .option('-r  --random  [value]', 'randomness')
+  .option('-L, --locale  [value]', 'set locale, defaults to en', 'en')
+  .option('-x, --hacker  [value]', 'hackers stuff')
+  .option('-H, --helpers [value]', 'detailed contextual data')
+  .option('-I, --image   [value]', 'image data')
+  .option('-w, --locales', 'list available locales');
 
 program.on('--help', function(){
   log('  faker-cli <cmd> help    list options available for <cmd>');
@@ -37,6 +37,7 @@ program.on('--help', function(){
   log('');
   log('\t$ faker-cli --helpers userCard');
   log('\t$ faker-cli --random uuid');
+  log('\t$ faker-cli --locales de -H userCard');
   log('');
 });
 

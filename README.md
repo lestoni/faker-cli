@@ -40,7 +40,7 @@ $ faker-cli -n findName
     -x, --hacker  [value]   hackers stuff
     -H, --helpers [value]   detailed contextual data
     -I, --image   [value]   image data
-    -w, --locales           list available locales
+    --locales           list available locales
 
   faker-cli <cmd> help    list options available for <cmd>
 

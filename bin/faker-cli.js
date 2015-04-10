@@ -1,15 +1,13 @@
 #!/usr/bin/env node
-
 var program = require('commander');
 
-var pkg = require('../package.json');
+var pkg      = require('../package.json');
 var generate = require('../');
-var fields = require('../').fields;
+var fields   = require('../').fields;
 
-var log = console.log;
-var option= {};
+var log    = console.log;
+var option = {};
 var _currentOption;
-var output;
 
 program
   .version(pkg.version)
@@ -28,7 +26,7 @@ program
   .option('-x, --hacker  [value]', 'hackers stuff')
   .option('-H, --helpers [value]', 'detailed contextual data')
   .option('-I, --image   [value]', 'image data')
-  .option('-w, --locales', 'list available locales');
+  .option('--locales', 'list available locales');
 
 program.on('--help', function(){
   log('  faker-cli <cmd> help    list options available for <cmd>');
@@ -37,12 +35,23 @@ program.on('--help', function(){
   log('');
   log('\t$ faker-cli --helpers userCard');
   log('\t$ faker-cli --random uuid');
-  log('\t$ faker-cli --locales de -H userCard');
+  log('\t$ faker-cli --locale de -H userCard');
   log('');
 });
 
+program.parse(process.argv);
+
+generate = generate(program.locale);
+
+print(main());
 
 function main(){
+  if(program.locales){
+    option.type = program.locales;
+
+    return processOption('locales');
+  }
+
   if(!program.rawArgs[3]){
     return program.help();
   }
@@ -119,11 +128,6 @@ function main(){
     return processOption('hacker');
   }
 
-  if(program.locales){
-    option.type = program.locales;
-
-    return processOption('locales');
-  }
 
   if(program.definitions){
     option.type = program.definitions;
@@ -158,14 +162,7 @@ function printHelp(which){
 }
 
 function print(data){
-  data ? log(JSON.stringify(output)) :
+  data ? log(JSON.stringify(data)) :
         printHelp(_currentOption);
 }
 
-program.parse(process.argv);
-
-generate = generate(program.locale);
-
-output = main();
-
-print(output);

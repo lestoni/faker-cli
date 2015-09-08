@@ -1,6 +1,6 @@
 {
   "name": "faker-cli",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "cli wrapper for fakerjs",
   "bin": {
     "faker-cli": "./bin/faker-cli.js"

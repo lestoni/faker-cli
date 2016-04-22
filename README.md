@@ -34,8 +34,10 @@ $ faker-cli -n findName
     -d, --date    [value]   date options
     -f  --finance [value]   finance field
     -i  --internet [value]  internet goodies
-    -l  --lorem   [value]   lorem ipsum goodnes
+    -l  --lorem    [value]   lorem ipsum goodnes
     -n  --names    [value]  person name(s)
+    -s  --system   [value]   System Info'
+    -C  --commerce [value]  Commerce related info
     -p  --phone   [value]   phone number options
     -r  --random  [value]   randomness
     -L, --locale  [value]   set locale, defaults to en
@@ -56,4 +58,3 @@ $ faker-cli -n findName
 # License.
 
 MIT.
-

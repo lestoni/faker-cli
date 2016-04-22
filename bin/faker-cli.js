@@ -17,9 +17,11 @@ program
   .option('-c, --company [value]', 'company info')
   .option('-d, --date    [value]', 'date options')
   .option('-f  --finance [value]', 'finance field')
-  .option('-i  --internet [value]', 'internet goodies')
-  .option('-l  --lorem   [value]', 'lorem ipsum goodnes')
-  .option('-n  --names    [value]', 'person name(s)')
+  .option('-i  --internet[value]', 'internet goodies')
+  .option('-l  --lorem   [value]', 'lorem ipsum goodness')
+  .option('-n  --names   [value]', 'person name(s)')
+  .option('-s  --system  [value]', 'System Info')
+  .option('-C  --commerce [value]', 'Commerce related info ')
   .option('-p  --phone   [value]', 'phone number options')
   .option('-r  --random  [value]', 'randomness')
   .option('-L, --locale  [value]', 'set locale, defaults to en', 'en')
@@ -45,6 +47,7 @@ generate = generate(program.locale);
 
 print(main());
 
+// This is an abuse of IF Statement
 function main(){
   if(program.locales){
     option.type = program.locales;
@@ -56,10 +59,23 @@ function main(){
     return program.help();
   }
 
+
   if(program.names){
     option.type = program.names;
 
     return processOption('name');
+  }
+
+  if(program.commerce){
+    option.type = program.commerce;
+
+    return processOption('commerce');
+  }
+
+  if(program.system){
+    option.type = program.system;
+
+    return processOption('system');
   }
 
   if(program.address){

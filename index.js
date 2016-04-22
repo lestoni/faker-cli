@@ -144,6 +144,28 @@ function getDefinition(options){
         faker.definition[options.type]();
 }
 
+/**
+ * Returns commerce randomnness
+ *
+ * @param {object} type of field to return
+ * @return {string} commerce data.
+ */
+function getCommerce(options){
+  return faker.commerce[options.type] &&
+        faker.commerce[options.type]();
+}
+
+/**
+ * Returns system randomnness
+ *
+ * @param {object} type of field to return
+ * @return {string} system data.
+ */
+function getSystem(options){
+  return faker.system[options.type] &&
+        faker.system[options.type]();
+}
+
 // return list of supported locales.
 function getLocales(){
   return Object.keys(faker.locales);
@@ -169,7 +191,9 @@ module.exports = function(locale){
     hacker      : getHackers,
     locales     : getLocales,
     definitions : getDefinition,
-    locale      : locale
+    locale      : locale,
+    system      : getSystem,
+    commerce    : getCommerce
   };
 };
 

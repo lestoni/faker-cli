@@ -17,7 +17,7 @@ program
   .option('-c, --company [value]', 'company info')
   .option('-d, --date    [value]', 'date options')
   .option('-f  --finance [value]', 'finance field')
-  .option('-i  --internet[value]', 'internet goodies')
+  .option('-i  --internet [value]', 'internet goodies')
   .option('-l  --lorem   [value]', 'lorem ipsum goodness')
   .option('-n  --names   [value]', 'person name(s)')
   .option('-s  --system  [value]', 'System Info')

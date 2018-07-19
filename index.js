@@ -2,7 +2,7 @@
 var faker = require('faker');
 
 /**
- * Returns random address of the given type.
+ * Get Random address of the given type.
  *
  * @param {object} type of field to return
  * @return {string} address value
@@ -13,7 +13,7 @@ function getAddress(options){
 }
 
 /**
- * Returns a person's name.
+ * Get A person's name.
  *
  * @param {object} type of field to return
  * @return {string} name value
@@ -24,7 +24,7 @@ function getName(options){
 }
 
 /**
- * Returns a phone number.
+ *  Get Phone numbers
  *
  * @param {object} type of field to return
  * @return {string} phone number value
@@ -35,7 +35,7 @@ function getPhone(options){
 }
 
 /**
- * Returns an internet related data.
+ * Get internet related data.
  *
  * @param {object} type of field to return
  * @return {string} internet related data value
@@ -46,7 +46,7 @@ function getInternet(options){
 }
 
 /**
- * Returns an company related data.
+ * Get company related data.
  *
  * @param {object} type of field to return
  * @return {string} company related data value
@@ -57,7 +57,7 @@ function getCompany(options){
 }
 
 /**
- * Returns an image/avatar related data.
+ * Get an image/avatar related data.
  *
  * @param {object} type of field to return
  * @return {string} image/avatar related data value
@@ -68,7 +68,7 @@ function getImage(options){
 }
 
 /**
- * Returns an lorem ipsum goodness.
+ * Get lorem ipsum goodness.
  *
  * @param {object} type of field to return
  * @return {string} lorem ipsum goodness
@@ -79,7 +79,7 @@ function getLorem(options){
 }
 
 /**
- * Returns an date data.
+ * Get date data.
  *
  * @param {object} type of field to return
  * @return {string} date data.
@@ -90,7 +90,7 @@ function getDate(options){
 }
 
 /**
- * Returns contextual data.
+ * Get contextual data.
  *
  * @param {object} type of field to return
  * @return {string|object} contextual data.
@@ -101,7 +101,7 @@ function getHelpers(options){
 }
 
 /**
- * Returns misc random data.
+ * Get misc random data.
  *
  * @param {object} type of field to return
  * @return {string} data value.
@@ -112,7 +112,7 @@ function getRandom(options){
 }
 
 /**
- * Returns finance related data.
+ * Get finance related data.
  *
  * @param {object} type of field to return
  * @return {string} finance related data value.
@@ -123,7 +123,7 @@ function getFinance(options){
 }
 
 /**
- * Returns hacker stuff
+ * Get hacker stuff
  *
  * @param {object} type of field to return
  * @return {string} hacker stuff data
@@ -134,7 +134,7 @@ function getHackers(options){
 }
 
 /**
- * Returns some definitions.
+ * Get some definitions.
  *
  * @param {object} type of field to return
  * @return {string} definition data.
@@ -145,7 +145,7 @@ function getDefinition(options){
 }
 
 /**
- * Returns commerce randomnness
+ * Get commerce randomnness
  *
  * @param {object} type of field to return
  * @return {string} commerce data.
@@ -156,7 +156,7 @@ function getCommerce(options){
 }
 
 /**
- * Returns system randomnness
+ * Get System randomnness
  *
  * @param {object} type of field to return
  * @return {string} system data.
@@ -164,6 +164,17 @@ function getCommerce(options){
 function getSystem(options){
   return faker.system[options.type] &&
         faker.system[options.type]();
+}
+
+/**
+ * Get Database randomnness
+ *
+ * @param {object} type of field to return
+ * @return {string} system data.
+ */
+function getDatabase(options){
+  return faker.database[options.type] &&
+        faker.database[options.type]();
 }
 
 // return list of supported locales.
@@ -193,7 +204,8 @@ module.exports = function(locale){
     definitions : getDefinition,
     locale      : locale,
     system      : getSystem,
-    commerce    : getCommerce
+    commerce    : getCommerce,
+    database    : getDatabase
   };
 };
 
@@ -204,5 +216,6 @@ module.exports.fields = function(which){
   if(which === 'helpers'){
     return ['contextualCard','createCard','createTransaction','userCard'];
   }
+  
   return Object.keys(faker[which]);
 };

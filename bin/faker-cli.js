@@ -13,25 +13,26 @@ program
   .version(pkg.version)
   .description('A cli wrapper for fakerjs')
   .usage('[option]')
-  .option('-a, --address [value]', 'street address')
-  .option('-c, --company [value]', 'company info')
-  .option('-d, --date    [value]', 'date options')
-  .option('-f  --finance [value]', 'finance field')
-  .option('-i  --internet [value]', 'internet goodies')
-  .option('-l  --lorem   [value]', 'lorem ipsum goodness')
-  .option('-n  --names   [value]', 'person name(s)')
-  .option('-s  --system  [value]', 'System Info')
-  .option('-C  --commerce [value]', 'Commerce related info ')
-  .option('-p  --phone   [value]', 'phone number options')
-  .option('-r  --random  [value]', 'randomness')
-  .option('-L, --locale  [value]', 'set locale, defaults to en', 'en')
-  .option('-x, --hacker  [value]', 'hackers stuff')
-  .option('-H, --helpers [value]', 'detailed contextual data')
-  .option('-I, --image   [value]', 'image data')
-  .option('--locales', 'list available locales');
+  .option('-a, --address  [option]', 'Street address')
+  .option('-c, --company  [option]', 'Company info')
+  .option('-d, --date     [option]', 'Date options')
+  .option('-f  --finance  [option]', 'Finance field')
+  .option('-i  --internet [option]', 'Internet goodies')
+  .option('-l  --lorem    [option]', 'Lorem ipsum goodness')
+  .option('-n  --names    [option]', 'Person name(s)')
+  .option('-s  --system   [option]', 'System Info')
+  .option('-C  --commerce [option]', 'Commerce related info ')
+  .option('-p  --phone    [option]', 'Phone number options')
+  .option('-r  --random   [option]', 'Randomness')
+  .option('-L, --locale   [option]', 'Set locale, defaults to en', 'en')
+  .option('-x, --hacker   [option]', 'Hackers stuff')
+  .option('-H, --helpers  [option]', 'Detailed contextual data')
+  .option('-I, --image    [option]', 'Image data')
+  .option('-D, --database [option]', 'Database stuff')
+  .option('--locales', 'List available locales');
 
 program.on('--help', function(){
-  log('  faker-cli <cmd> help    list options available for <cmd>');
+  log('  faker-cli <cmd> help    List options available for <cmd>');
   log('');
   log('  Examples');
   log('');
@@ -151,6 +152,12 @@ function main(){
     return processOption('definitions');
   }
 
+  if(program.database){
+    option.type = program.database;
+
+    return processOption('database');
+  }
+
 }
 
 function processOption(type){
@@ -181,4 +188,3 @@ function print(data){
   data ? log(JSON.stringify(data)) :
         printHelp(_currentOption);
 }
-

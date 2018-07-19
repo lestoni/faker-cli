@@ -114,9 +114,9 @@ describe('generate#date', function() {
 });
 
 describe('generate#finance', function() {
-  var gen = generate('en');
 
   it('should return string data', function(){
+    var gen = generate('en');
     var data1 = gen.finance({ type : 'account' });
     var data2 = gen.finance({ type : 'mask' });
 
@@ -126,7 +126,7 @@ describe('generate#finance', function() {
   });
 
   it('should return random data', function() {
-
+    var gen = generate('en');
     var data1 = gen.finance({ type : 'accountName' });
     var data2 = gen.finance({ type : 'accountName' });
 
@@ -374,4 +374,3 @@ describe('generate#image', function() {
   });
 
 });
-

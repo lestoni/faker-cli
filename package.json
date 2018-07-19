@@ -25,10 +25,10 @@
   },
   "homepage": "https://github.com/lestoni/faker-cli",
   "dependencies": {
-    "commander": "~2.7.1",
-    "faker": "~3.1.0"
+    "commander": "^2.16.0",
+    "faker": "^4.1.0"
   },
   "devDependencies": {
-    "mocha": "~2.2.1"
+    "mocha": "^5.2.0"
   }
 }

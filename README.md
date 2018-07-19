@@ -1,5 +1,7 @@
 # faker-cli.
 
+[![Build Status](https://travis-ci.org/lestoni/faker-cli.svg?branch=master)](https://travis-ci.org/lestoni/faker-cli)
+
 [![NPM](https://nodei.co/npm/faker-cli.png?downloads=true&stars=true)](https://nodei.co/npm/faker-cli/)
 
 A command-line wrapper for [faker](https://github.com/marak/Faker.js)

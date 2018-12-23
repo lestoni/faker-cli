@@ -158,6 +158,8 @@ function main(){
     return processOption('database');
   }
 
+  // @TODO Default option for options not generating help
+  return program.help();
 }
 
 function processOption(type){
@@ -165,8 +167,7 @@ function processOption(type){
 
   _currentOption = type;
 
-  option.type === 'help' ?
-    printHelp(type) : (data = generate[type](option));
+  option.type === 'help' ? printHelp(type) : (data = generate[type](option));
 
   return data;
 }

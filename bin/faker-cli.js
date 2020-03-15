@@ -1,13 +1,11 @@
 #!/usr/bin/env node
-var program = require('commander');
+const { program } = require('commander');
 
-var pkg      = require('../package.json');
-var generate = require('../');
-var fields   = require('../').fields;
+const pkg = require('../package.json');
+const generate = require('..');
+const { fields, fakerMethods } = require('..');
 
-var log    = console.log;
-var option = {};
-var _currentOption;
+const log = console.log;
 
 program
   .version(pkg.version)
@@ -44,15 +42,14 @@ program.on('--help', function(){
 
 program.parse(process.argv);
 
-generate = generate(program.locale);
+const getMethodOutput = generate(program.locale);
 
-print(main());
+main();
 
 // This is an abuse of IF Statement
 function main(){
-  if(program.locales){
-    option.type = program.locales;
 
+  if(program.locales){
     return processOption('locales');
   }
 
@@ -60,132 +57,40 @@ function main(){
     return program.help();
   }
 
+  const [fakerMethod] = fakerMethods.filter(method => {
+    return program[method] !== undefined;
+  });
 
-  if(program.names){
-    option.type = program.names;
-
-    return processOption('name');
+  if(!fakerMethod){
+    return program.help();
+  } else {
+    return processOption(fakerMethod);
   }
-
-  if(program.commerce){
-    option.type = program.commerce;
-
-    return processOption('commerce');
-  }
-
-  if(program.system){
-    option.type = program.system;
-
-    return processOption('system');
-  }
-
-  if(program.address){
-    option.type = program.address;
-
-    return processOption('address');
-  }
-
-  if(program.phone){
-    option.type = program.phone;
-
-    return processOption('phone');
-  }
-
-  if(program.internet){
-    option.type = program.internet;
-
-    return processOption('internet');
-  }
-
-  if(program.company){
-    option.type = program.company;
-
-    return processOption('company');
-  }
-
-  if(program.image){
-    option.type = program.image;
-
-    return processOption('image');
-  }
-
-  if(program.lorem){
-    option.type = program.lorem;
-
-    return processOption('lorem');
-  }
-
-  if(program.helpers){
-    option.type = program.helpers;
-
-    return processOption('helpers');
-  }
-
-  if(program.date){
-    option.type = program.date;
-
-    return processOption('date');
-  }
-
-  if(program.random){
-    option.type = program.random;
-
-    return processOption('random');
-  }
-
-  if(program.finance){
-    option.type = program.finance;
-
-    return processOption('finance');
-  }
-
-  if(program.hacker){
-    option.type = program.hacker;
-
-    return processOption('hacker');
-  }
-
-
-  if(program.definitions){
-    option.type = program.definitions;
-
-    return processOption('definitions');
-  }
-
-  if(program.database){
-    option.type = program.database;
-
-    return processOption('database');
-  }
-
-  // @TODO Default option for options not generating help
-  return program.help();
 }
 
-function processOption(type){
-  var data;
+function processOption(fakerMethod){
+  const selectedMethod = program[fakerMethod];
 
-  _currentOption = type;
+  if(selectedMethod === 'help') {
+    printHelp(fakerMethod)
+  }
 
-  option.type === 'help' ? printHelp(type) : (data = generate[type](option));
+  fakerMethod = fakerMethod === 'names' ? 'name': fakerMethod;
 
-  return data;
+  const methodData = getMethodOutput(fakerMethod, selectedMethod);
+
+  log(JSON.stringify(methodData, null, 2))
 }
 
 
 function printHelp(which){
 
-  log('     Available options for ' + which + ':');
+  log(`     Available options for ${which}`);
 
   fields(which).forEach(function(field){
-    log('\t' + field);
+    log(`\t ${field}`);
   });
 
   log('\n');
   process.exit(1);
-}
-
-function print(data){
-  data ? log(JSON.stringify(data)) :
-        printHelp(_currentOption);
 }

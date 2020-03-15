@@ -1,3 +1,11 @@
+2.0.1 / 2020-03-15
+==================
+
+  * bump version 2.0.1
+  * remove publish steps
+  * fix randomness assertion
+  * add lock file and fixtures
+  * rewrite to es6
 
 v1.4.1 / 2018-12-23
 ===================

@@ -1,7 +1,5 @@
 // jshint mocha:true
 
-// WARNING: true randomness is not granteed always
-
 const assert = require('assert');
 const generate = require('../');
 const fixtures = require('./fixtures');
@@ -36,10 +34,10 @@ fixtures.forEach(fixture => {
         });
       
         it('should return random data', function() {
-          const data1 = gen(fakerMethod, output[0]);
-          const data2 = gen(fakerMethod, output[0]);
-      
-          assert.notEqual(data1, data2);
+            const data1 = gen(fakerMethod, output[0]);
+            const data2 = gen(fakerMethod, output[0]);
+            // FIXME: true randomness is not granteed always
+            assert((data1 != data2) || (data1 != data2));
         });
       
         it('should not return data for wrong option', function(){

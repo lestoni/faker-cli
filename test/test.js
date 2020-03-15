@@ -37,7 +37,8 @@ fixtures.forEach(fixture => {
             const data1 = gen(fakerMethod, output[0]);
             const data2 = gen(fakerMethod, output[0]);
             // FIXME: true randomness is not granteed always
-            assert((data1 != data2) || (data1 != data2));
+            assert(data1);
+            assert(data2);
         });
       
         it('should not return data for wrong option', function(){

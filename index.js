@@ -25,23 +25,33 @@ module.exports.fields = function(which){
     return Object.keys(faker[which]);
 };
 
+/**
+ * @type {(keyof import('@faker-js/faker').Faker)[]}
+ */
 module.exports.fakerMethods = [
-    'names',
     'address',
-    'phone',
-    'internet',
-    'company',
-    'image',
-    'lorem',
-    'helpers',
-    'date',
-    'random',
-    'finance',
-    'hacker',
-    'locales',
-    'definitions',
-    'local',
-    'system',
+    'animal',
+    'color',
     'commerce',
-    'database'
+    'company',
+    'database',
+    'date',
+    'definitions',
+    'fake',
+    'finance',
+    'git',
+    'hacker',
+    'helpers',
+    'image',
+    'internet',
+    'locale',
+    'locales',
+    'lorem',
+    'name',
+    'phone',
+    'random',
+    'science',
+    'system',
+    'vehicle',
+    'word',
 ];

@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/itconnects/faker-cli",
   "dependencies": {
+    "@faker-js/faker": "^7.3.0",
     "commander": "^5.0.0",
     "faker": "^4.1.0",
     "minimist": ">=1.2.2"

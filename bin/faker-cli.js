@@ -83,8 +83,6 @@ function processOption(fakerMethod){
     printHelp(fakerMethod)
   }
 
-  fakerMethod = fakerMethod === 'names' ? 'name': fakerMethod;
-
   const methodData = getMethodOutput(fakerMethod, selectedMethod);
 
   log(JSON.stringify(methodData, null, 2))

@@ -12,21 +12,28 @@ program
   .description('A cli wrapper for fakerjs')
   .usage('[option]')
   .option('-a, --address  [option]', 'Street address')
-  .option('-c, --company  [option]', 'Company info')
-  .option('-d, --date     [option]', 'Date options')
-  .option('-f  --finance  [option]', 'Finance field')
-  .option('-i  --internet [option]', 'Internet goodies')
-  .option('-l  --lorem    [option]', 'Lorem ipsum goodness')
-  .option('-n  --names    [option]', 'Person name(s)')
-  .option('-s  --system   [option]', 'System Info')
+  .option('-A, --animal   [option]', 'Want to build a farm?')
+  .option('--color        [option]', 'So beautiful')
   .option('-C  --commerce [option]', 'Commerce related info ')
-  .option('-p  --phone    [option]', 'Phone number options')
-  .option('-r  --random   [option]', 'Randomness')
-  .option('-L, --locale   [option]', 'Set locale, defaults to en', 'en')
+  .option('-c, --company  [option]', 'Company info')
+  .option('-D, --database [option]', 'Database stuff')
+  .option('-d, --date     [option]', 'Date options')
+  .option('-F  --faker    [option]', 'Fake everything')
+  .option('-f  --finance  [option]', 'Finance field')
+  .option('-g  --git      [option]', 'Git gud')
   .option('-x, --hacker   [option]', 'Hackers stuff')
   .option('-H, --helpers  [option]', 'Detailed contextual data')
   .option('-I, --image    [option]', 'Image data')
-  .option('-D, --database [option]', 'Database stuff')
+  .option('-i  --internet [option]', 'Internet goodies')
+  .option('-L, --locale   [option]', 'Set locale, defaults to en', 'en')
+  .option('-l  --lorem    [option]', 'Lorem ipsum goodness')
+  .option('-n  --name     [option]', 'Person name(s)')
+  .option('-p  --phone    [option]', 'Phone number options')
+  .option('-r  --random   [option]', 'Randomness')
+  .option('-S  --science  [option]', 'Science stuff')
+  .option('-s  --system   [option]', 'System Info')
+  .option('-v  --vehicle  [option]', 'Vehicle Info')
+  .option('-w  --word     [option]', 'In case you want to write a book')
   .option('--locales', 'List available locales');
 
 program.on('--help', function(){
@@ -34,9 +41,10 @@ program.on('--help', function(){
   log('');
   log('  Examples');
   log('');
-  log('\t$ faker-cli --helpers userCard');
+  log('\t$ faker-cli --git commitMessage');
   log('\t$ faker-cli --random uuid');
-  log('\t$ faker-cli --locale de -H userCard');
+  log('\t$ faker-cli --locale de --name firstName');
+  log('\t$ For a detailed list of all possible functions, visit https://fakerjs.dev');
   log('');
 });
 

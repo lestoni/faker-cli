@@ -1,5 +1,5 @@
 // Load Module dependencies.
-const faker = require('faker');
+const { faker } = require('@faker-js/faker');
 
 function getMethodFakerData(method, option) {
     if(method === 'locales') {

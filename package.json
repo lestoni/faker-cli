@@ -27,7 +27,7 @@
   "dependencies": {
     "@faker-js/faker": "^7.3.0",
     "commander": "^5.0.0",
-    "minimist": ">=1.2.2"
+    "minimist": ">=1.2.6"
   },
   "devDependencies": {
     "mocha": "^5.2.0"

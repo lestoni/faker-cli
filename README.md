@@ -1,3 +1,13 @@
+
+
+# ARCHIVED - NO LONGER MAINTAINED
+
+**Note:** This repository is no longer actively maintained. 
+
+Thank you for your interest in this project. While the repository remains accessible for reference and use, please be aware that no further updates, bug fixes, or support will be provided at this time.
+
+---
+
 # faker-cli.
 
 [![Build Status](https://travis-ci.org/lestoni/faker-cli.svg?branch=master)](https://travis-ci.org/lestoni/faker-cli)
